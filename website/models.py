@@ -2,9 +2,18 @@ from django.db import models
 
 """
 Models from Scilab Database created using inspectdb
-Use it with the "scilab" database eg:using("scilab") 
+Use it with the "scilab" database eg:using("scilab")
 These models are used only for django orm reference.
 """
+
+class ListOfCategory(models.Model):
+    id = models.IntegerField(unique=True, primary_key=True)
+    category_name = models.CharField(max_length=50L)
+    category_id = models.IntegerField()
+    maincategory = models.CharField(max_length=255L)
+    class Meta:
+        db_table = 'list_of_category'
+
 class TextbookCompanionPreference(models.Model):
     id = models.IntegerField(unique=True, primary_key=True)
     proposal_id = models.IntegerField()

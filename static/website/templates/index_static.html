@@ -16,7 +16,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="{% static 'website/css/bootstrap.min.css' %}">
-    {% dajaxice_js_import %}
     <style>
         body {
             padding-top: 50px;
@@ -26,11 +25,6 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300|Roboto:300,400|Ubuntu:300,400,500" rel="stylesheet">
    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'website/css/bootstrap-theme.min.css' %}">
-         <link href="{% static 'website/css/base.css' %}" rel="stylesheet"/>
-        <link href="{% static 'website/css/codemirror.css' %}" rel="stylesheet"/>
-        <link href="{% static 'website/css/fullscreen.css'%}" rel="stylesheet"/>
-        <link href="{% static 'website/css/monokai.css' %}" rel="stylesheet"/>
-        <link href="{% static 'website/css/main.css' %}" rel="stylesheet"/>
     <link rel="stylesheet" href="{% static 'website/css/component.css' %}">
     <link rel="stylesheet" href="{% static 'website/css/icons.css' %}">
     <link rel="stylesheet" href="{% static 'website/css/main.css' %}">
@@ -50,7 +44,6 @@
         .scroller,
         .scroller-inner {
             position: relative;
-            overflow-y: scroll;
         }
 
         .container {
@@ -75,35 +68,265 @@
             <nav id="mp-menu" class="mp-menu">
                 <div class="mp-level">
                     <img src="{% static 'website/images/scilab-app-logo.svg' %}" class="full-width padding-logo" />
-                    <h2 class="icon icon-world" >Categories</h2>
+                    <h2 class="icon icon-world">Categories</h2>
                     <ul>
-                    <div id="category-wrapper">
-                      {% for cate in catg %}
-                        <li id="categories" class="icon icon-arrow-left">
-                            <a href ="#" id={{ cate.id }} class="categ" value="{{ cate.id }}"> {{ cate.category_name }} </a>
-                            <div class="mp-level" >
+                        <li class="icon icon-arrow-left">
+                            <a class="" href="#">Analog Electronics</a>
+
+                            <div class="mp-level">
                                 <img src="{% static 'website/images/scilab-app-logo.svg' %}" class="full-width padding-logo" />
                                 <h2 class="icon icon-display">Books</h2>
                                 <ul>
-                                  <div id="books-wrapper{{ cate.id }}" class="catbook">
-                                    <li id="books" class="icon icon-arrow-left">
-                                        <a class="" href="#"><br><span class="petite black-text"></span></a>
+                                    <li class="icon icon-arrow-left">
+                                        <a class="" href="#">Analog and Digital Communications<br><span class="petite black-text">H.P Hsu</span></a>
+
                                         <div class="mp-level">
                                             <img src="{% static 'website/images/scilab-app-logo.svg' %}" class="full-width padding-logo" />
                                             <h2>Chapters</h2>
                                             <ul>
-                                                  <div id="chapters-wrapper"></div>
+                                                <li><a href="#" class="open-app">1 - Signals and Spectra</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">3 - Amplitude Modulation</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">4 - Angle Modulation</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">5 - Pulse Modulation Systems</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">6 - Probability and Random Variables</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">8 - Noise</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">9 - Noise in Analog Communication System</a>
+                                                </li>
                                             </ul>
                                         </div>
+
                                     </li>
-                                  </div>
+                                    <li class="icon icon-arrow-left">
+                                        <a class="" href="#">Basic Electrical Engineering<br><span class="petite black-text">C.L. Wadhwa</span></a>
+
+                                        <div class="mp-level">
+                                            <img src="{% static 'website/images/scilab-app-logo.svg' %}" class="full-width padding-logo" />
+                                            <h2>Chapters</h2>
+                                            <ul>
+                                                <li><a href="#" class="open-app">1 - Signals and Spectra</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">3 - Amplitude Modulation</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">4 - Angle Modulation</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">5 - Pulse Modulation Systems</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">6 - Probability and Random Variables</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">8 - Noise</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">9 - Noise in Analog Communication System</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    </li>
+                                    <li class="icon icon-arrow-left">
+                                        <a class="" href="#">Integrated Circuits<br><span class="petite black-text">K.R. Botkar</span></a>
+
+                                        <div class="mp-level">
+                                            <img src="{% static 'website/images/scilab-app-logo.svg' %}" class="full-width padding-logo" />
+                                            <h2>Chapters</h2>
+                                            <ul>
+                                                <li><a href="#" class="open-app">1 - Signals and Spectra</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">3 - Amplitude Modulation</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">4 - Angle Modulation</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">5 - Pulse Modulation Systems</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">6 - Probability and Random Variables</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">8 - Noise</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">9 - Noise in Analog Communication System</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    </li>
                                 </ul>
                             </div>
                         </li>
-                        {% endfor %}
+                        <li class="icon icon-arrow-left">
+                            <a class="" href="#">Chemical Engineering</a>
+
+                            <div class="mp-level">
+                                <img src="{% static 'website/images/scilab-app-logo.svg' %}" class="full-width padding-logo" />
+                                <h2 class="icon icon-display">Books</h2>
+                                <ul>
+                                    <li class="icon icon-arrow-left">
+                                        <a class="" href="#">Analog and Digital Communications<br><span class="petite black-text">H.P Hsu</span></a>
+
+                                        <div class="mp-level">
+                                            <img src="{% static 'website/images/scilab-app-logo.svg' %}" class="full-width padding-logo" />
+                                            <h2>Chapters</h2>
+                                            <ul>
+                                                <li><a href="#" class="open-app">1 - Signals and Spectra</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">3 - Amplitude Modulation</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">4 - Angle Modulation</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">5 - Pulse Modulation Systems</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">6 - Probability and Random Variables</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">8 - Noise</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">9 - Noise in Analog Communication System</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    </li>
+                                    <li class="icon icon-arrow-left">
+                                        <a class="" href="#">Basic Electrical Engineering<br><span class="petite black-text">C.L. Wadhwa</span></a>
+
+                                        <div class="mp-level">
+                                            <img src="{% static 'website/images/scilab-app-logo.svg' %}" class="full-width padding-logo" />
+                                            <h2>Chapters</h2>
+                                            <ul>
+                                                <li><a href="#" class="open-app">1 - Signals and Spectra</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">3 - Amplitude Modulation</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">4 - Angle Modulation</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">5 - Pulse Modulation Systems</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">6 - Probability and Random Variables</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">8 - Noise</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">9 - Noise in Analog Communication System</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    </li>
+                                    <li class="icon icon-arrow-left">
+                                        <a class="" href="#">Integrated Circuits<br><span class="petite black-text">K.R. Botkar</span></a>
+
+                                        <div class="mp-level">
+                                            <img src="{% static 'website/images/scilab-app-logo.svg' %}" class="full-width padding-logo" />
+                                            <h2>Chapters</h2>
+                                            <ul>
+                                                <li><a href="#" class="open-app">1 - Signals and Spectra</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">3 - Amplitude Modulation</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">4 - Angle Modulation</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">5 - Pulse Modulation Systems</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">6 - Probability and Random Variables</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">8 - Noise</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">9 - Noise in Analog Communication System</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="icon icon-arrow-left">
+                            <a class="" href="#">Digital Electronics</a>
+
+                            <div class="mp-level">
+                                <img src="{% static 'website/images/scilab-app-logo.svg' %}" class="full-width padding-logo" />
+                                <h2 class="icon icon-display">Books</h2>
+                                <ul>
+                                    <li class="icon icon-arrow-left">
+                                        <a class="" href="#">Analog and Digital Communications<br><span class="petite black-text">H.P Hsu</span></a>
+
+                                        <div class="mp-level">
+                                            <img src="{% static 'website/images/scilab-app-logo.svg' %}" class="full-width padding-logo" />
+                                            <h2>Chapters</h2>
+                                            <ul>
+                                                <li><a href="#" class="open-app">1 - Signals and Spectra</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">3 - Amplitude Modulation</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">4 - Angle Modulation</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">5 - Pulse Modulation Systems</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">6 - Probability and Random Variables</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">8 - Noise</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">9 - Noise in Analog Communication System</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    </li>
+                                    <li class="icon icon-arrow-left">
+                                        <a class="" href="#">Basic Electrical Engineering<br><span class="petite black-text">C.L. Wadhwa</span></a>
+
+                                        <div class="mp-level">
+                                            <img src="{% static 'website/images/scilab-app-logo.svg' %}" class="full-width padding-logo" />
+                                            <h2>Chapters</h2>
+                                            <ul>
+                                                <li><a href="#" class="open-app">1 - Signals and Spectra</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">3 - Amplitude Modulation</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">4 - Angle Modulation</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">5 - Pulse Modulation Systems</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">6 - Probability and Random Variables</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">8 - Noise</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">9 - Noise in Analog Communication System</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    </li>
+                                    <li class="icon icon-arrow-left">
+                                        <a class="" href="#">Integrated Circuits<br><span class="petite black-text">K.R. Botkar</span></a>
+
+                                        <div class="mp-level">
+                                            <img src="{% static 'website/images/scilab-app-logo.svg' %}" class="full-width padding-logo" />
+                                            <h2>Chapters</h2>
+                                            <ul>
+                                                <li><a href="#" class="open-app">1 - Signals and Spectra</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">3 - Amplitude Modulation</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">4 - Angle Modulation</a>
+                                                </li>
+                                                <li><a href="#" class="active open-app">5 - Pulse Modulation Systems</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">6 - Probability and Random Variables</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">8 - Noise</a>
+                                                </li>
+                                                <li><a href="#" class="open-app">9 - Noise in Analog Communication System</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
                         <!-- ... -->
                     </ul>
-
                     <div class="pushmenu-footer">
                         <a class="btn btn-blue">Contribute &nbsp;<span class="fa fa-upload"></span></a>
 
@@ -122,10 +345,10 @@
                         <div id="intro-page">
                             <div class="intro-abs-wrap">
                             <div class="logo-app-wrap">
-
+                                
                             </div>
                             <h2 class="text-center">Choose a book <span class="fa fa-chevron-right pcolor"></span> Choose an example <span class="fa fa-chevron-right pcolor"></span> Execute</h2>
-                            <br><br><br>
+                            <br><br><br> 
                             <div class="text-center pcolor"><a data-rel="mobile-menu" href="#" id="trigger-alt" class="pcolor link">Or, browse by category</a></div>
                             </div>
                             <div id="morphsearch" class="morphsearch">
@@ -137,95 +360,94 @@
                     <div class="dummy-column">
                         <h2>Relevant</h2>
                         <a class="dummy-media-object" href="#">
-
+                            
                             <h3>Sara Soueidan</h3>
                         </a>
                         <a class="dummy-media-object" href="#">
-
+                            
                             <h3>Rachel Smith</h3>
                         </a>
                         <a class="dummy-media-object" href="#">
-
+                            
                             <h3>Peter Finlan</h3>
                         </a>
                         <a class="dummy-media-object" href="#">
-
+                            
                             <h3>Patrick Cox</h3>
                         </a>
                         <a class="dummy-media-object" href="#">
-
+                            
                             <h3>Tim Holman</h3>
                         </a>
                         <a class="dummy-media-object" href="#">
-
+                            
                             <h3>Shaun Dona</h3>
                         </a>
                     </div>
                     <div class="dummy-column">
                         <h2>Popular</h2>
                         <a class="dummy-media-object" href="#">
-
+                            
                             <h3>Page Preloading Effect</h3>
                         </a>
                         <a class="dummy-media-object" href="#">
-
+                            
                             <h3>Arrow Navigation Styles</h3>
                         </a>
                         <a class="dummy-media-object" href="#">
-
+                            
                             <h3>Ideas for Subtle Hover Effects</h3>
                         </a>
                         <a class="dummy-media-object" href="#">
-
+                            
                             <h3>Halcyon Days Template</h3>
                         </a>
                         <a class="dummy-media-object" href="#">
-
+                            
                             <h3>Inspiration for Article Intro Effects</h3>
                         </a>
                         <a class="dummy-media-object" href="#">
-
+                            
                             <h3>Draggable Dual-View Slideshow</h3>
                         </a>
                     </div>
                     <div class="dummy-column">
                         <h2>Recent</h2>
                         <a class="dummy-media-object" href="#">
-
+                            
                             <h3>Tooltip Styles Inspiration</h3>
                         </a>
                         <a class="dummy-media-object" href="#">
-
+                            
                             <h3>Animated Background Headers</h3>
                         </a>
                         <a class="dummy-media-object" href="#">
-
+                            
                             <h3>Off-Canvas Menu Effects</h3>
                         </a>
                         <a class="dummy-media-object" href="#">
-
+                            
                             <h3>Tab Styles Inspiration</h3>
                         </a>
                         <a class="dummy-media-object" href="#">
-
+                            
                             <h3>Make SVGs Responsive with CSS</h3>
                         </a>
                         <a class="dummy-media-object" href="#">
-
+                            
                             <h3>Notification Styles Inspiration</h3>
                         </a>
                     </div>
                 </div><!-- /morphsearch-content -->
                 <span class="morphsearch-close"></span>
             </div><!-- /morphsearch -->
-
-
-
-
+                            
+                            
+                            
+                            
                         </div>
-
+                        
                         <div id="wrap-page">
-                        <div id="examples-wrapper"></div>
                         <div class="col-md-12">
                             <div class="book-title-sub">
                                 H. D. CROCKFORD | J. W. NOWELL | H. W. BAIRD | F. W. GETZEN
@@ -383,18 +605,11 @@ granted exclusive rights for Scilab Trademark.</p>
 
 
 
-    <script src="{% static 'website/js/vendor/jquery.min.js' %}"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js' %}"></script>
     <script>
         window.jQuery || document.write('<script src="{% static 'website/js/vendor/jquery-1.11.2.min.js' %}"><\/script>')
     </script>
-    <script src="{% static 'website/js/jquery.min.js' %}"></script>
-    <script src="{% static '/static/dajax/jquery.dajax.core.js' %}"></script>
-    <script src="{% static 'website/js/codemirror.js'%}"></script>
-    <script src="{% static 'website/js/javascript.js'%}"></script>
-    <script src="{% static 'website/js/fullscreen.js'%}"></script>
-    <script src="{% static 'website/js/placeholder.js'%}"></script>
-    <script src="{% static 'website/js/lightbox_me.js'%}"></script>
-    <script src="{% static 'website/js/cloud.js'%}"></script>
+
     <script src="{% static 'website/js/vendor/bootstrap.min.js' %}"></script>
     <script src="{% static 'website/js/vendor/classie.js' %}"></script>
     <script src="{% static 'website/js/vendor/mlpushmenu.js' %}"></script>
@@ -408,7 +623,7 @@ granted exclusive rights for Scilab Trademark.</p>
         });
     </script>
     <script>
-
+    
         var isResizing = false,
     lastDownX = 0;
 
@@ -425,7 +640,7 @@ $(function () {
 
     $(document).on('mousemove', function (e) {
         // we don't want to do anything if we aren't resizing.
-        if (!isResizing)
+        if (!isResizing) 
             return;
 
         var offsetRight = container.width() - (e.clientX - container.offset().left);
@@ -438,15 +653,15 @@ $(function () {
         isResizing = false;
     });
 });
-
+        
         $('.code-footer-item').on('click', function(){
             $(this).toggleClass('active');
             $('.code-footer').toggleClass('item-active');
             $(this).find('.fa').toggleClass('fa-file');
             $(this).find('.fa').toggleClass('fa-close');
         });
-
-
+    
+    
     </script>
     <script>
             (function() {
@@ -463,7 +678,7 @@ $(function () {
                         if( isOpen ) {
                             classie.remove( morphSearch, 'open' );
 
-                            // trick to hide input text once the search overlay closes
+                            // trick to hide input text once the search overlay closes 
                             // todo: hardcoded times, should be done after transition ends
                             if( input.value !== '' ) {
                                 setTimeout(function() {
@@ -474,7 +689,7 @@ $(function () {
                                     }, 300 );
                                 }, 500);
                             }
-
+                            
                             input.blur();
                         }
                         else {
@@ -499,18 +714,18 @@ $(function () {
                 /***** for demo purposes only: don't allow to submit the form *****/
                 morphSearch.querySelector( 'button[type="submit"]' ).addEventListener( 'click', function(ev) { ev.preventDefault(); } );
             })();
-
+        
         $('#trigger-alt').on('click', function(){
             $('#intro-page').hide(600);
             $('#wrap-page').show(600);
         })
-
+        
         $('.open-app').on('click', function(){
             $('#intro-page').hide(300);
             $('#wrap-page').show(300);
         })
         </script>
-{% csrf_token %}
+
     <!--    <script src="{% static 'website/js/main.js' %}"></script>-->
 </body>
 

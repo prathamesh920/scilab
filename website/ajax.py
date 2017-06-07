@@ -4,7 +4,7 @@ from dajaxice.decorators import dajaxice_register
 from dajaxice.utils import deserialize_form
 
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render 
+from django.shortcuts import render
 from django.template.loader import render_to_string
 from django.core.context_processors import csrf
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
@@ -25,22 +25,24 @@ def books(request, category_id):
     if category_id:
         ids = TextbookCompanionProposal.objects.using('scilab')\
             .filter(proposal_status=3).values('id')
-        
+
         books = TextbookCompanionPreference.objects.using('scilab')\
             .filter(category=category_id).filter(approval_status=1)\
             .filter(proposal_id__in=ids).order_by('book')
-        
+
         context = {
             'books': books
         }
     books = render_to_string('website/templates/ajax-books.html', context)
     dajax.assign('#books-wrapper', 'innerHTML', books)
+    print dajax.json()
     return dajax.json()
 
 @dajaxice_register
 def chapters(request, book_id):
     dajax = Dajax()
     context = {}
+    chapters = []
     if book_id:
         chapters = TextbookCompanionChapter.objects.using('scilab')\
             .filter(preference_id=book_id).order_by('number')
@@ -48,6 +50,8 @@ def chapters(request, book_id):
         context = {
             'chapters': chapters
         }
+    print chapters
+    print "****************"
     chapters = render_to_string('website/templates/ajax-chapters.html', context)
     dajax.assign('#chapters-wrapper', 'innerHTML', chapters)
     return dajax.json()
@@ -59,7 +63,7 @@ def examples(request, chapter_id):
     if chapter_id:
         examples = TextbookCompanionExample.objects.using('scilab')\
             .filter(chapter_id=chapter_id).order_by('number')
-        
+
         context = {
             'examples': examples
         }
@@ -137,7 +141,7 @@ def bug_form_submit(request, form):
         for field in form:
             for error in field.errors:
                 message = '<div class="error-message">* {0}</div>'.format(error)
-                dajax.append('#id_{0}_wrapper'.format(field.name), 'innerHTML', message) 
+                dajax.append('#id_{0}_wrapper'.format(field.name), 'innerHTML', message)
         # non field errors
         if form.non_field_errors():
             message = '<div class="error-message"><small>{0}</small></div>'.format(form.non_field_errors())

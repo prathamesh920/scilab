@@ -1,7 +1,7 @@
 #Custom Settings
 
 from os.path import *
-from config import *
+from local import *
 
 PROJECT_DIR = abspath(dirname(__file__) + '/../')
 
@@ -19,19 +19,19 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': DB_NAME_DEFAULT,                      # Or path to database file if using sqlite3.
-        'USER': DB_USER_DEFAULT,
-        'PASSWORD': DB_PASS_DEFAULT,
+        'NAME': 'fsdb',                      # Or path to database file if using sqlite3.
+        'USER': 'root',
+        'PASSWORD': '325898',
         'HOST': DB_HOST_DEFAULT,                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': DB_PORT_DEFAULT,                      # Set to empty string for default.
     },
     'scilab': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': DB_NAME_SCILAB,                      # Or path to database file if using sqlite3.
-        'USER': DB_USER_SCILAB,
-        'PASSWORD': DB_PASS_SCILAB,
-        'HOST': DB_HOST_SCILAB,                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': DB_PORT_SCILAB,                      # Set to empty string for default.
+        'NAME': 'fsdb',                      # Or path to database file if using sqlite3.
+        'USER': 'fsus',
+        'PASSWORD': '325898',
+        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '',                      # Set to empty string for default.
     }
 }
 
