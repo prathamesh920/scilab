@@ -85,6 +85,7 @@
                                 <img src="{% static 'website/images/scilab-app-logo.svg' %}" class="full-width padding-logo" />
                                 <h2 class="icon icon-display">Books</h2>
                                 <ul>
+
                                   <div id="books-wrapper{{ cate.id }}" class="catbook">
                                     <li id="books" class="icon icon-arrow-left">
                                         <a class="" href="#"><br><span class="petite black-text"></span></a>
@@ -92,7 +93,7 @@
                                             <img src="{% static 'website/images/scilab-app-logo.svg' %}" class="full-width padding-logo" />
                                             <h2>Chapters</h2>
                                             <ul>
-                                                  <div id="chapters-wrapper"></div>
+                                                  
                                             </ul>
                                         </div>
                                     </li>
@@ -337,6 +338,9 @@ granted exclusive rights for Scilab Trademark.</p>
                                 Scilab Code
                                 <a class="btn btn-blue btn-white btn-execute">EXECUTE <span class="fa fa-gears"></span></a>
                             </div>
+                            <form>
+                                <textarea id="code" placeholder="Write a new code or select existing from above category..."></textarea>
+                            </form>
                             <div class="code-footer">
                                 <div class="code-footer-item col-md-6">
                                     <span class="fa fa-file"></span> &nbsp;random_filename_443.sci
@@ -360,6 +364,7 @@ granted exclusive rights for Scilab Trademark.</p>
                                 Result
                                 <a class="btn btn-blue btn-white btn-execute">DOWNLOAD <span class="fa fa-download"></span></a>
                             </div>
+                            <textarea id="result"></textarea>
                             <div id="handle"></div>
                             <div class="code-right-footer">
                                 Submit Feedback/Report Bug <span class="fa fa-bug"></span>
@@ -383,11 +388,10 @@ granted exclusive rights for Scilab Trademark.</p>
 
 
 
-    <script src="{% static 'website/js/vendor/jquery.min.js' %}"></script>
+    <script src="{% static 'website/js/jquery-1.10.2.min.js' %}"></script>
     <script>
         window.jQuery || document.write('<script src="{% static 'website/js/vendor/jquery-1.11.2.min.js' %}"><\/script>')
     </script>
-    <script src="{% static 'website/js/jquery.min.js' %}"></script>
     <script src="{% static '/static/dajax/jquery.dajax.core.js' %}"></script>
     <script src="{% static 'website/js/codemirror.js'%}"></script>
     <script src="{% static 'website/js/javascript.js'%}"></script>

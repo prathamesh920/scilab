@@ -34,7 +34,7 @@ def books(request, category_id):
             'books': books
         }
     books = render_to_string('website/templates/ajax-books.html', context)
-    dajax.assign('#books-wrapper', 'innerHTML', books)
+    dajax.assign('#books-wrapper'+category_id, 'innerHTML', books)
     print dajax.json()
     return dajax.json()
 
@@ -53,7 +53,7 @@ def chapters(request, book_id):
     print chapters
     print "****************"
     chapters = render_to_string('website/templates/ajax-chapters.html', context)
-    dajax.assign('#chapters-wrapper', 'innerHTML', chapters)
+    dajax.assign('#chapters-wrapper'+book_id, 'innerHTML', chapters)
     return dajax.json()
 
 @dajaxice_register

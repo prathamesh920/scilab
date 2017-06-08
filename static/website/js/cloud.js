@@ -1,8 +1,8 @@
 $(document).ready(function() {
     console.log("erfwewewewe");
      $(".categ").click(function() {
-         console.log("yessss");
-        $("#books-wrapper").html("");
+         console.log("#books-wrapper"+this.id);
+        $("#books-wrapper"+this.id).html("");
         $("#chapters-wrapper").html("");
         $("#examples-wrapper").html("");
         $("#contributor").hide();
@@ -22,6 +22,7 @@ $(document).ready(function() {
             cm.setOption("fullScreen", !cm.getOption("fullScreen"));
            },
            "Esc": function(cm) {
+             console.log("running");
             if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
            }
          }
@@ -76,14 +77,13 @@ $(document).ready(function() {
         }
         e.preventDefault();
     });
-
     /*
      * Selectors function
      * Write the queries using .on()
     */
     $(document).on("change", "#categories", function() {
-      console.log("erf");
-        $("#books-wrapper").html("");
+      console.log("#books-wrapper"+this.id);
+        $("#books-wrapper"+this.id).html("");
         $("#chapters-wrapper").html("");
         $("#examples-wrapper").html("");
         $("#contributor").hide();
@@ -95,8 +95,9 @@ $(document).ready(function() {
 
     });
 
-    $(document).on("change", "#books", function() {
-        $("#chapters-wrapper").html("");
+    $(document).on("click", ".bks", function() {
+      console.log("#books-wrapper"+this.id);
+        $("#chapters-wrapper"+this.id).html("");
         $("#examples-wrapper").html("");
         $("#contributor").show();
         $("#download-book").show();

@@ -1,6 +1,17 @@
+{% load static %}
 {% for book in books %}
+
 <li id="books" class="icon icon-arrow-left">
-  <a class="" href="#" id={{ book.id }}>{{ book.book }}<br><span class="petite black-text">{{ book.author }}</span></a>
+  <a class="bks" href="#" id={{ book.id }}>{{ book.book }}<br><span class="petite black-text">{{ book.author }}</span></a>
+    <div class="mp-level">
+      <img src="{% static 'website/images/scilab-app-logo.svg' %}" class="full-width padding-logo" />
+        <h2>Chapters</h2>
+        <ul>
+              <div id="chapters-wrapper{{ book.id }}">
+                <li><a href="#" class="open-app">1 - Signals and Spectra</a>
+                </li>
+              </div>
+        </ul>
+    </div>
 </li>
 {% endfor %}
-<a href="#" class="extra-link" id="download-book">Download Book</a>
