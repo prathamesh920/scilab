@@ -50,8 +50,6 @@ def chapters(request, book_id):
         context = {
             'chapters': chapters
         }
-    print chapters
-    print "****************"
     chapters = render_to_string('website/templates/ajax-chapters.html', context)
     dajax.assign('#chapters-wrapper'+book_id, 'innerHTML', chapters)
     return dajax.json()
@@ -61,11 +59,30 @@ def examples(request, chapter_id):
     dajax = Dajax()
     context = {}
     if chapter_id:
+        bk_id = TextbookCompanionChapter.objects.using('scilab')\
+            .filter(id=chapter_id).values('preference_id')
+
+        bk = TextbookCompanionPreference.objects.using('scilab')\
+            .filter(id=bk_id)
+
+        cp = TextbookCompanionChapter.objects.using('scilab')\
+            .filter(id=chapter_id)
+
         examples = TextbookCompanionExample.objects.using('scilab')\
             .filter(chapter_id=chapter_id).order_by('number')
 
+        preference = TextbookCompanionPreference.objects.using('scilab')\
+            .get(id=bk_id)
+
+        proposal = TextbookCompanionProposal.objects.using('scilab')\
+            .get(id=preference.proposal_id)
+
         context = {
-            'examples': examples
+            'bk':bk,
+            'cp':cp,
+            'examples': examples,
+            "preference": preference,
+            "proposal": proposal,
         }
     examples = render_to_string('website/templates/ajax-examples.html', context)
     dajax.assign('#examples-wrapper', 'innerHTML', examples)

@@ -80,7 +80,7 @@
                     <div id="category-wrapper">
                       {% for cate in catg %}
                         <li id="categories" class="icon icon-arrow-left">
-                            <a href ="#" id={{ cate.id }} class="categ" value="{{ cate.id }}"> {{ cate.category_name }} </a>
+                            <a href ="#" id={{ cate.id }} class="categ"> {{ cate.category_name }} </a>
                             <div class="mp-level" >
                                 <img src="{% static 'website/images/scilab-app-logo.svg' %}" class="full-width padding-logo" />
                                 <h2 class="icon icon-display">Books</h2>
@@ -93,7 +93,7 @@
                                             <img src="{% static 'website/images/scilab-app-logo.svg' %}" class="full-width padding-logo" />
                                             <h2>Chapters</h2>
                                             <ul>
-                                                  
+
                                             </ul>
                                         </div>
                                     </li>
@@ -103,6 +103,7 @@
                         </li>
                         {% endfor %}
                         <!-- ... -->
+                      </div>
                     </ul>
 
                     <div class="pushmenu-footer">
@@ -220,13 +221,9 @@
                 <span class="morphsearch-close"></span>
             </div><!-- /morphsearch -->
 
-
-
-
                         </div>
 
-                        <div id="wrap-page">
-                        <div id="examples-wrapper"></div>
+                    <div id="examples-wrapper">
                         <div class="col-md-12">
                             <div class="book-title-sub">
                                 H. D. CROCKFORD | J. W. NOWELL | H. W. BAIRD | F. W. GETZEN
@@ -239,6 +236,17 @@
                         </div>
                         <div class="col-md-8 cards-wrapper">
 
+                            <div class="chapter-card col-sm-3">
+                                <div class="chapter-img">.</div>
+                                <div class="chapter-text">
+                                    <div class="chapter-card-title">
+                                        <h5>Example 4.6</h5>
+                                        Lorem ipsum dolor sit amet, consec-
+tetuer adipiscing elit, sed diam nonum-
+my Lorem ipsum dolor sit amet
+                                    </div>
+                                </div>
+                            </div>
                             <div class="chapter-card col-sm-3">
                                 <div class="chapter-img">.</div>
                                 <div class="chapter-text">
@@ -322,9 +330,6 @@ granted exclusive rights for Scilab Trademark.</p>
                                     </p>
                                 </div>
                             </div>
-
-
-
                         </div>
                     </div>
                     </div>
@@ -506,12 +511,12 @@ $(function () {
 
         $('#trigger-alt').on('click', function(){
             $('#intro-page').hide(600);
-            $('#wrap-page').show(600);
+            $('#examples-wrapper').show(600);
         })
 
         $('.open-app').on('click', function(){
             $('#intro-page').hide(300);
-            $('#wrap-page').show(300);
+            $('#examples-wrapper').show(300);
         })
         </script>
 {% csrf_token %}

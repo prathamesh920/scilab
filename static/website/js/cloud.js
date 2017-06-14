@@ -1,18 +1,5 @@
 $(document).ready(function() {
-    console.log("erfwewewewe");
-     $(".categ").click(function() {
-         console.log("#books-wrapper"+this.id);
-        $("#books-wrapper"+this.id).html("");
-        $("#chapters-wrapper").html("");
-        $("#examples-wrapper").html("");
-        $("#contributor").hide();
-        ajax_loader(this);
-        Dajaxice.website.books(function(data) {
-            Dajax.process(data);
-            ajax_loader("clear");
-            console.log("running");
-        }, {category_id: $(this).attr('id')});
-    });
+
     var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
         lineNumbers: true,
         lineWrapping: true,
@@ -81,8 +68,8 @@ $(document).ready(function() {
      * Selectors function
      * Write the queries using .on()
     */
-    $(document).on("change", "#categories", function() {
-      console.log("#books-wrapper"+this.id);
+    $(document).on("click", ".categ", function() {
+      console.log("#category-wrapper"+this.id);
         $("#books-wrapper"+this.id).html("");
         $("#chapters-wrapper").html("");
         $("#examples-wrapper").html("");
@@ -108,23 +95,24 @@ $(document).ready(function() {
         }, {book_id: $(this).attr('id')});
     });
 
-    $(document).on("change", "#chapters", function() {
+    $(document).on("click", ".chp", function() {
+      console.log("#chapters-wrapper"+this.id)
         $("#examples-wrapper").html("");
         $("#download-chapter").show();
         ajax_loader(this);
         Dajaxice.website.examples(function(data) {
             Dajax.process(data);
             ajax_loader("clear");
-        }, {chapter_id: $(this).val()});
+        }, {chapter_id: $(this).attr('id')});
     });
 
-    $(document).on("change", "#examples", function() {
+    $(document).on("click", ".exmp", function() {
         ajax_loader(this);
         $("#download-example").show();
         Dajaxice.website.code(function(data) {
             editor.setValue(data.code);
             ajax_loader("clear");
-        }, {example_id: $(this).val()});
+        }, {example_id: $(this).attr('id')});
     });
 
     /* Execute the code */

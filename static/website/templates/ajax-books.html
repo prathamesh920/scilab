@@ -15,3 +15,14 @@
     </div>
 </li>
 {% endfor %}
+
+
+<script>
+    new mlPushMenu(document.getElementById('mp-menu'), document.getElementById('trigger'));
+
+    $('.expand-btn').on('click', function(){
+        $('.code-panes').toggleClass('fullscreen');
+        $('.code-sectionx').toggleClass('fullscreen-x');
+//            $('.container-app-main').toggle();
+    });
+</script>
