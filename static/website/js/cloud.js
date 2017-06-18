@@ -1,5 +1,59 @@
 $(document).ready(function() {
 
+
+  /*
+   * Selectors function
+   * Write the queries using .on()
+  */
+  $(document).on("click", ".categ", function() {
+    console.log("#category-wrapper"+this.id);
+      $("#books-wrapper"+this.id).html("");
+      $("#chapters-wrapper").html("");
+      $("#examples-wrapper").html("");
+      $("#contributor").hide();
+      ajax_loader(this);
+      Dajaxice.website.books(function(data) {
+          Dajax.process(data);
+          ajax_loader("clear");
+      }, {category_id: $(this).attr('id')});
+
+  });
+
+  $(document).on("click", '.bks', function() {
+    console.log("#books-wrapper"+this.id);
+      $("#chapters-wrapper"+this.id).html("");
+      $("#examples-wrapper").html("");
+      $("#contributor").show();
+      $("#download-book").show();
+      ajax_loader(this);
+      Dajaxice.website.chapters(function(data) {
+          Dajax.process(data);
+          ajax_loader("clear");
+      }, {book_id: $(this).attr('id')});
+  });
+
+  $(document).on("click", '.chp', function() {
+    console.log("#chapters-wrapper"+this.id)
+      $("#examples-wrapper").html("");
+      $("#download-chapter").show();
+      ajax_loader(this);
+      Dajaxice.website.examples(function(data) {
+          Dajax.process(data);
+          ajax_loader("clear");
+      }, {chapter_id: $(this).attr('id')});
+  });
+
+  $(document).on("click", '.exmp', function() {
+      ajax_loader(this);
+      $("#download-example").show();
+      $("#hidethis").hide();
+      $('.exmpid').attr('id', this.id);
+      Dajaxice.website.code(function(data) {
+          editor.setValue(data.code);
+          ajax_loader("clear");
+      }, {example_id: $(this).attr('id')});
+  });
+
     var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
         lineNumbers: true,
         lineWrapping: true,
@@ -64,61 +118,13 @@ $(document).ready(function() {
         }
         e.preventDefault();
     });
-    /*
-     * Selectors function
-     * Write the queries using .on()
-    */
-    $(document).on("click", ".categ", function() {
-      console.log("#category-wrapper"+this.id);
-        $("#books-wrapper"+this.id).html("");
-        $("#chapters-wrapper").html("");
-        $("#examples-wrapper").html("");
-        $("#contributor").hide();
-        ajax_loader(this);
-        Dajaxice.website.books(function(data) {
-            Dajax.process(data);
-            ajax_loader("clear");
-        }, {category_id: $(this).attr('id')});
 
-    });
-
-    $(document).on("click", ".bks", function() {
-      console.log("#books-wrapper"+this.id);
-        $("#chapters-wrapper"+this.id).html("");
-        $("#examples-wrapper").html("");
-        $("#contributor").show();
-        $("#download-book").show();
-        ajax_loader(this);
-        Dajaxice.website.chapters(function(data) {
-            Dajax.process(data);
-            ajax_loader("clear");
-        }, {book_id: $(this).attr('id')});
-    });
-
-    $(document).on("click", ".chp", function() {
-      console.log("#chapters-wrapper"+this.id)
-        $("#examples-wrapper").html("");
-        $("#download-chapter").show();
-        ajax_loader(this);
-        Dajaxice.website.examples(function(data) {
-            Dajax.process(data);
-            ajax_loader("clear");
-        }, {chapter_id: $(this).attr('id')});
-    });
-
-    $(document).on("click", ".exmp", function() {
-        ajax_loader(this);
-        $("#download-example").show();
-        Dajaxice.website.code(function(data) {
-            editor.setValue(data.code);
-            ajax_loader("clear");
-        }, {example_id: $(this).attr('id')});
-    });
 
     /* Execute the code */
     $plotbox_wrapper  = $("#plotbox-wrapper");
     $plotbox = $("#plotbox");
     $(document).on("click", "#execute", function() {
+      console.log("running");
         $("#execute-inner").html("Executing...");
         Dajaxice.website.execute(function(data) {
             $("#execute-inner").html("Execute");
@@ -135,27 +141,28 @@ $(document).ready(function() {
         }, {
             token: $("[name='csrfmiddlewaretoken']").val(),
             code: editor.getValue(),
-            book_id: $("#books").val() || 0,
-            chapter_id: $("#chapters").val() || 0,
-            example_id: $("#examples").val() || 0
+            book_id: $(".bks_id").attr('id') || 0,
+            chapter_id: $(".chp_id").attr('id') || 0,
+            example_id: $(".ex_id").val() || 0
         });
     });
 
     /* Download book, chapter, example */
     $(document).on("click", "#download-book", function(e) {
-        window.location = "http://scilab.in/download/book/" + $("#books").val();
+        window.location = "http://scilab.in/download/book/" + $(this).attr('value');
         e.preventDefault();
     });
 
     $(document).on("click", "#download-chapter", function(e) {
-        window.location = "http://scilab.in/download/chapter/" + $("#chapters").val();
+        window.location = "http://scilab.in/download/chapter/" + $(".chp_id").attr('id');
         e.preventDefault();
     });
 
-    $(document).on("click", "#download-example", function(e) {
-        window.location = "http://scilab.in/download/example/" + $("#examples").val();
+    $(document).on("click", ".exmpid", function(e) {
+      if ($('.exmpid').attr('id')){
+        window.location = "http://scilab.in/download/example/" + $('.exmpid').attr('id');
         e.preventDefault();
-    });
+    }});
 
     /* Ajax loader */
     function ajax_loader(key) {

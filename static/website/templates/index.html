@@ -16,6 +16,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="{% static 'website/css/bootstrap.min.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'website/images/favicon.ico' %}"/>
+
     {% dajaxice_js_import %}
     <style>
         body {
@@ -45,6 +47,10 @@
 
         .scroller {
             overflow-y: scroll;
+        }
+
+        .side-about {
+            position: fixed;
         }
 
         .scroller,
@@ -81,35 +87,14 @@
                       {% for cate in catg %}
                         <li id="categories" class="icon icon-arrow-left">
                             <a href ="#" id={{ cate.id }} class="categ"> {{ cate.category_name }} </a>
-                            <div class="mp-level" >
-                                <img src="{% static 'website/images/scilab-app-logo.svg' %}" class="full-width padding-logo" />
-                                <h2 class="icon icon-display">Books</h2>
-                                <ul>
 
-                                  <div id="books-wrapper{{ cate.id }}" class="catbook">
-                                    <li id="books" class="icon icon-arrow-left">
-                                        <a class="" href="#"><br><span class="petite black-text"></span></a>
-                                        <div class="mp-level">
-                                            <img src="{% static 'website/images/scilab-app-logo.svg' %}" class="full-width padding-logo" />
-                                            <h2>Chapters</h2>
-                                            <ul>
+                                  <div id="books-wrapper{{ cate.id }}" class="catbook"></div>
 
-                                            </ul>
-                                        </div>
-                                    </li>
-                                  </div>
-                                </ul>
-                            </div>
                         </li>
-                        {% endfor %}
+                      {% endfor %}
                         <!-- ... -->
-                      </div>
-                    </ul>
-
-                    <div class="pushmenu-footer">
-                        <a class="btn btn-blue">Contribute &nbsp;<span class="fa fa-upload"></span></a>
-
                     </div>
+                    </ul>
                 </div>
 
             </nav>
@@ -224,113 +209,6 @@
                         </div>
 
                     <div id="examples-wrapper">
-                        <div class="col-md-12">
-                            <div class="book-title-sub">
-                                H. D. CROCKFORD | J. W. NOWELL | H. W. BAIRD | F. W. GETZEN
-                            </div>
-                            <div class="book-title ubuntu">
-                                <h1>Fundamentals of Physical Chemistry</h1>
-                                <a class="btn btn-blue btn-white">Download <span class="fa fa-download"></span></a>
-                                <h4 class=""> - Chapter 4 : Signals and Spectra &nbsp;&nbsp;<a href="#"><span class="fa fa-download pcolor"></span></a></h4>
-                            </div>
-                        </div>
-                        <div class="col-md-8 cards-wrapper">
-
-                            <div class="chapter-card col-sm-3">
-                                <div class="chapter-img">.</div>
-                                <div class="chapter-text">
-                                    <div class="chapter-card-title">
-                                        <h5>Example 4.6</h5>
-                                        Lorem ipsum dolor sit amet, consec-
-tetuer adipiscing elit, sed diam nonum-
-my Lorem ipsum dolor sit amet
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="chapter-card col-sm-3">
-                                <div class="chapter-img">.</div>
-                                <div class="chapter-text">
-                                    <div class="chapter-card-title">
-                                        <h5>Example 4.6</h5>
-                                        Lorem ipsum dolor sit amet, consec-
-tetuer adipiscing elit, sed diam nonum-
-my Lorem ipsum dolor sit amet
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="chapter-card col-sm-3">
-                                <div class="chapter-img">.</div>
-                                <div class="chapter-text">
-                                    <div class="chapter-card-title">
-                                        <h5>Example 4.6</h5>
-                                        Lorem ipsum dolor sit amet, consec-
-tetuer adipiscing elit, sed diam nonum-
-my Lorem ipsum dolor sit amet
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="chapter-card col-sm-3">
-                                <div class="chapter-img">.</div>
-                                <div class="chapter-text">
-                                    <div class="chapter-card-title">
-                                        <h5>Example 4.6</h5>
-                                        Lorem ipsum dolor sit amet, consec-
-tetuer adipiscing elit, sed diam nonum-
-my Lorem ipsum dolor sit amet
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="chapter-card col-sm-3">
-                                <div class="chapter-img">.</div>
-                                <div class="chapter-text">
-                                    <div class="chapter-card-title">
-                                        <h5>Example 4.6</h5>
-                                        Lorem ipsum dolor sit amet, consec-
-tetuer adipiscing elit, sed diam nonum-
-my Lorem ipsum dolor sit amet
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
-                        <div class="col-md-4">
-                            <div class="side-about">
-                                <h2 class="ubuntu black-text">Contributor</h2>
-                                <table class="contrib-table">
-                                    <tr>
-                                        <td class="tlabel">Name</td>
-                                        <td>Anuradha Singhania</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="tlabel">Mentor</td>
-                                        <td>Mr. Amit Kumar Garg</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="tlabel">Book Reviewer</td>
-                                        <td>Prof. Madhu Belur, Dept. Of Electrical Engineering</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="tlabel">College</td>
-                                        <td>Sri Mata Vaishno Devi University, Jammu</td>
-                                    </tr>
-                                </table>
-<!--
-                                <a class="btn btn-blue btn-white btn-small">Contribute</a>
-                                <a class="btn btn-blue btn-white btn-small">About</a>
--->
-
-                                <div class="side-app-copy">
-                                    <br>
-                                    <p>Disclaimer: Scilab is a trademark of Inria (registered at the INPI
- for France and the rest of the World) and Scilab Enterprises is
-granted exclusive rights for Scilab Trademark.</p>
-                                    <p class="pcolor">
-                                        © Copyright 2017 IIT Bombay
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     </div>
 
@@ -341,12 +219,12 @@ granted exclusive rights for Scilab Trademark.</p>
                                     <span class="fa fa-expand"></span>
                                 </div>
                                 Scilab Code
-                                <a class="btn btn-blue btn-white btn-execute">EXECUTE <span class="fa fa-gears"></span></a>
+                                <a id="execute" class="btn btn-blue btn-white btn-execute"><span id="execute-inner">EXECUTE</span><span class="fa fa-gears"></span></a>
                             </div>
                             <form>
-                                <textarea id="code" placeholder="Write a new code or select existing from above category..."></textarea>
+                                <textarea id="code" placeholder="Write a new code or select existing from above panel..."></textarea>
                             </form>
-                            <div class="code-footer">
+                            <div id="hidethis" class="code-footer">
                                 <div class="code-footer-item col-md-6">
                                     <span class="fa fa-file"></span> &nbsp;random_filename_443.sci
                                 </div>
@@ -367,9 +245,9 @@ granted exclusive rights for Scilab Trademark.</p>
                                     <span class="fa fa-expand"></span>
                                 </div>
                                 Result
-                                <a class="btn btn-blue btn-white btn-execute">DOWNLOAD <span class="fa fa-download"></span></a>
+                                <a class="btn btn-blue btn-white btn-execute exmpid">DOWNLOAD<span class="fa fa-download"></span></a>
                             </div>
-                            <textarea id="result"></textarea>
+                            <textarea id="result" placeholder="Result will be shown here..."></textarea>
                             <div id="handle"></div>
                             <div class="code-right-footer">
                                 Submit Feedback/Report Bug <span class="fa fa-bug"></span>
@@ -393,9 +271,9 @@ granted exclusive rights for Scilab Trademark.</p>
 
 
 
-    <script src="{% static 'website/js/jquery-1.10.2.min.js' %}"></script>
+    <script src="{% static 'website/js/jquery.min.js' %}"></script>
     <script>
-        window.jQuery || document.write('<script src="{% static 'website/js/vendor/jquery-1.11.2.min.js' %}"><\/script>')
+        window.jQuery || document.write('<script src="{% static 'website/js/vendor/jquery.min.js' %}"><\/script>')
     </script>
     <script src="{% static '/static/dajax/jquery.dajax.core.js' %}"></script>
     <script src="{% static 'website/js/codemirror.js'%}"></script>

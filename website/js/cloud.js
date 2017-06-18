@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  console.log("cdsvsdv");
     var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
         lineNumbers: true,
         lineWrapping: true,
@@ -63,8 +64,8 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
-    /* 
-     * Selectors function 
+    /*
+     * Selectors function
      * Write the queries using .on()
     */
     $(document).on("change", "#categories", function() {
@@ -85,7 +86,7 @@ $(document).ready(function() {
         $("#contributor").show();
         $("#download-book").show();
         ajax_loader(this);
-        Dajaxice.website.chapters(function(data) { 
+        Dajaxice.website.chapters(function(data) {
             Dajax.process(data);
             ajax_loader("clear");
         }, {book_id: $(this).val()});
@@ -95,7 +96,7 @@ $(document).ready(function() {
         $("#examples-wrapper").html("");
         $("#download-chapter").show();
         ajax_loader(this);
-        Dajaxice.website.examples(function(data) { 
+        Dajaxice.website.examples(function(data) {
             Dajax.process(data);
             ajax_loader("clear");
         }, {chapter_id: $(this).val()});
@@ -178,7 +179,7 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
-    
+
     /* Bug form handling */
     $(document).on("click", "#bug", function(e) {
         Dajaxice.website.bug_form(function(data){

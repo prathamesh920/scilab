@@ -16,8 +16,8 @@ DB_PASS_SCILAB = ''
 DB_HOST_SCILAB = ''
 DB_PORT_SCILAB = ''
 
-SCILAB_BIN = '/home/scilab_test/CLOUD/scilab/scilab-5.4.1/bin/scilab-adv-cli'
+SCILAB_BIN = '/home/vidhan/scilab-5.5.2/bin/scilab-adv-cli'
 #SCILAB_FLAGS = '-noatomsautoload'
 SCILAB_FLAGS = '-noatomsautoload -nogui -nb ' #srikant
 SCIMAX_LOADER = '/home/scilab_test/CLOUD/scilab/scilab-scimax-2.1.4/loader.sce'
-UPLOADS_PATH = '/home/vidhan/Desktop/scilab-on-cloud/uploads' 
+UPLOADS_PATH = '/home/vidhan/Desktop/scilab-on-cloud/uploads'
