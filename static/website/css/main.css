@@ -503,6 +503,8 @@ h1.small {
 }
 .book-title h1 {
     font-weight: 300;
+    margin-top: 10px;
+    margin-bottom: 30px;
     color: #000;
     display: inline-block;
 }
@@ -675,7 +677,7 @@ h1.small {
 .full-width-always {
     width: 100%;
 }
-.navbar-inverse .navbar-toggle .icon-bar{ 
+.navbar-inverse .navbar-toggle .icon-bar{
     background: #36c2de;
 }
 .arrows {
@@ -923,7 +925,7 @@ p, ul, .example-text-wrap {
     display: none;
 }
 #intro-page {
-    
+
 }
 .logo-app-wrap {
     background: url('../images/scilab-app-logo.svg');
@@ -1053,8 +1055,8 @@ p, ul, .example-text-wrap {
 	color: transparent;
 }
 
-input[type="search"] { /* reset normalize */ 
-	box-sizing: border-box;	
+input[type="search"] { /* reset normalize */
+	box-sizing: border-box;
 }
 
 .morphsearch-input:focus,
@@ -1237,7 +1239,7 @@ input[type="search"] { /* reset normalize */
 
 .dummy-media-object img {
 	display: inline-block;
-	width: 50px;	
+	width: 50px;
 	margin: 0 10px 0 0;
 	vertical-align: middle;
 }

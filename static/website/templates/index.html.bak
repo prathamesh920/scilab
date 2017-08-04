@@ -16,9 +16,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="{% static 'website/css/bootstrap.min.css' %}">
-    <link rel="shortcut icon" type="image/png" href="{% static 'website/images/favicon.ico' %}"/>
-
-    {% dajaxice_js_import %}
     <style>
         body {
             padding-top: 50px;
@@ -28,36 +25,21 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300|Roboto:300,400|Ubuntu:300,400,500" rel="stylesheet">
    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'website/css/bootstrap-theme.min.css' %}">
-         <link href="{% static 'website/css/base.css' %}" rel="stylesheet"/>
-        <link href="{% static 'website/css/codemirror.css' %}" rel="stylesheet"/>
-        <link href="{% static 'website/css/fullscreen.css'%}" rel="stylesheet"/>
-        <link href="{% static 'website/css/monokai.css' %}" rel="stylesheet"/>
-        <link href="{% static 'website/css/main.css' %}" rel="stylesheet"/>
     <link rel="stylesheet" href="{% static 'website/css/component.css' %}">
     <link rel="stylesheet" href="{% static 'website/css/icons.css' %}">
     <link rel="stylesheet" href="{% static 'website/css/main.css' %}">
+
     <style>
         html,
         body,
         .container,
         .scroller {
             height: 100%;
+            padding: 0px;
         }
-
-        .scrollid1,
-        .scrollid2,
-        .scrollid3 {
-            height: 75%;
-            overflow-y: scroll;
-        }
-
 
         .scroller {
             overflow-y: scroll;
-        }
-
-        .side-about {
-            position: fixed;
         }
 
         .scroller,
@@ -85,31 +67,29 @@
 
             <!-- mp-menu -->
             <nav id="mp-menu" class="mp-menu">
-                <div class="mp-level">
+                <div id="mycategory" class="mp-level">
                     <img src="{% static 'website/images/scilab-app-logo.svg' %}" class="full-width padding-logo" />
-                    <h2 class="icon icon-world" >Categories</h2>
-                    <ul class="scrollid1">
-                      {% for category, books in d.items %}
-                        <li  class="icon icon-arrow-left">
-                            <a id="{{ category.id }}" class="categories" href="#">{{ category.category_name }}</a>
-                            <div id="books-wrapper{{ category.id }}" class="mp-level bookss">
-                              <img src="{% static 'website/images/scilab-app-logo.svg' %}" class="full-width padding-logo" />
-                              <h2 class="icon icon-display">Books</h2>
-                              <ul class="scrollid2">
-                              {% for book in books %}
-                              <li class="icon icon-arrow-left">
-                                  <a id="{{ book.id }}" class="mmbooks" href="#">{{ book.book }}<br><span class="petite black-text">{{ book.author }}</span></a>
-                                  <div id="chapters-wrapper{{ book.id }}"  class="mp-level chapterss">
-                                  </div>
-                              </li>
-                              {% endfor %}
-                            </ul>
-                          </div>
+                    <h2 class="icon icon-world">Categories</h2>
+                    <ul>
+                      {% for category in catg %}
+                        <li id="{{ category.id }}" class="categories" class="icon icon-arrow-left">
+                            <a  href="#">{{ category.category_name }}</a>
+
+                            <div id="books-wrapper{{ category.id }}" class="mp-level">
+                                <img src="{% static 'website/images/scilab-app-logo.svg' %}" class="full-width padding-logo" />
+                                <h2 class="icon icon-display">Books</h2>
+
+                            </div>
                         </li>
                      {% endfor %}
                         <!-- ... -->
                     </ul>
+                    <div class="pushmenu-footer">
+                        <a class="btn btn-blue">Contribute &nbsp;<span class="fa fa-upload"></span></a>
+
+                    </div>
                 </div>
+
             </nav>
             <!-- /mp-menu -->
 
@@ -219,9 +199,111 @@
                 <span class="morphsearch-close"></span>
             </div><!-- /morphsearch -->
 
+
+
+
                         </div>
 
-                    <div id="examples-wrapper">
+                        <div id="examples-wrapper">
+                        <div class="col-md-12">
+                            <div class="book-title-sub">
+                                H. D. CROCKFORD | J. W. NOWELL | H. W. BAIRD | F. W. GETZEN
+                            </div>
+                            <div class="book-title ubuntu">
+                                <h1>Fundamentals of Physical Chemistry</h1>
+                                <a class="btn btn-blue btn-white">Download <span class="fa fa-download"></span></a>
+                                <h4 class=""> - Chapter 4 : Signals and Spectra &nbsp;&nbsp;<a href="#"><span class="fa fa-download pcolor"></span></a></h4>
+                            </div>
+                        </div>
+                        <div class="col-md-8 cards-wrapper">
+
+                            <div class="chapter-card col-sm-3">
+                                <div class="chapter-img">.</div>
+                                <div class="chapter-text">
+                                    <div class="chapter-card-title">
+                                        <h5>Example 4.6</h5>
+                                        Lorem ipsum dolor sit amet, consec-
+tetuer adipiscing elit, sed diam nonum-
+my Lorem ipsum dolor sit amet
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chapter-card col-sm-3">
+                                <div class="chapter-img">.</div>
+                                <div class="chapter-text">
+                                    <div class="chapter-card-title">
+                                        <h5>Example 4.6</h5>
+                                        Lorem ipsum dolor sit amet, consec-
+tetuer adipiscing elit, sed diam nonum-
+my Lorem ipsum dolor sit amet
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chapter-card col-sm-3">
+                                <div class="chapter-img">.</div>
+                                <div class="chapter-text">
+                                    <div class="chapter-card-title">
+                                        <h5>Example 4.6</h5>
+                                        Lorem ipsum dolor sit amet, consec-
+tetuer adipiscing elit, sed diam nonum-
+my Lorem ipsum dolor sit amet
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chapter-card col-sm-3">
+                                <div class="chapter-img">.</div>
+                                <div class="chapter-text">
+                                    <div class="chapter-card-title">
+                                        <h5>Example 4.6</h5>
+                                        Lorem ipsum dolor sit amet, consec-
+tetuer adipiscing elit, sed diam nonum-
+my Lorem ipsum dolor sit amet
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-4">
+                            <div class="side-about">
+                                <h2 class="ubuntu black-text">Contributor</h2>
+                                <table class="contrib-table">
+                                    <tr>
+                                        <td class="tlabel">Name</td>
+                                        <td>Anuradha Singhania</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tlabel">Mentor</td>
+                                        <td>Mr. Amit Kumar Garg</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tlabel">Book Reviewer</td>
+                                        <td>Prof. Madhu Belur, Dept. Of Electrical Engineering</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="tlabel">College</td>
+                                        <td>Sri Mata Vaishno Devi University, Jammu</td>
+                                    </tr>
+                                </table>
+<!--
+                                <a class="btn btn-blue btn-white btn-small">Contribute</a>
+                                <a class="btn btn-blue btn-white btn-small">About</a>
+-->
+
+                                <div class="side-app-copy">
+                                    <br>
+                                    <p>Disclaimer: Scilab is a trademark of Inria (registered at the INPI
+ for France and the rest of the World) and Scilab Enterprises is
+granted exclusive rights for Scilab Trademark.</p>
+                                    <p class="pcolor">
+                                        © Copyright 2017 IIT Bombay
+                                    </p>
+                                </div>
+                            </div>
+
+
+
+                        </div>
                     </div>
                     </div>
 
@@ -232,12 +314,9 @@
                                     <span class="fa fa-expand"></span>
                                 </div>
                                 Scilab Code
-                                <a id="execute" class="btn btn-blue btn-white btn-execute"><span id="execute-inner">EXECUTE</span><span class="fa fa-gears"></span></a>
+                                <a class="btn btn-blue btn-white btn-execute">EXECUTE <span class="fa fa-gears"></span></a>
                             </div>
-                            <form>
-                                <textarea id="code" placeholder="Write a new code or select existing from above panel..."></textarea>
-                            </form>
-                            <div id="hidethis" class="code-footer">
+                            <div class="code-footer">
                                 <div class="code-footer-item col-md-6">
                                     <span class="fa fa-file"></span> &nbsp;random_filename_443.sci
                                 </div>
@@ -258,9 +337,8 @@
                                     <span class="fa fa-expand"></span>
                                 </div>
                                 Result
-                                <a class="btn btn-blue btn-white btn-execute exmpid">DOWNLOAD<span class="fa fa-download"></span></a>
+                                <a class="btn btn-blue btn-white btn-execute">DOWNLOAD <span class="fa fa-download"></span></a>
                             </div>
-                            <textarea id="result" placeholder="Result will be shown here..."></textarea>
                             <div id="handle"></div>
                             <div class="code-right-footer">
                                 Submit Feedback/Report Bug <span class="fa fa-bug"></span>
@@ -280,33 +358,33 @@
 
     </div>
     <!-- /container -->
-    <div id="plotbox-wrapper">
-        <div id="plotbox"></div>
-    </div>
 
-    <script
-			  src="http://code.jquery.com/jquery-3.2.1.slim.min.js"
-			  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
-			  crossorigin="anonymous"></script>
-    <script src="{% static 'dajax/jquery.dajax.core.js' %}"></script>
+
+
+<script src="{% static 'website/js/jquery.min.js' %}"></script>
+    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js' %}"></script>-->
+    <script>
+        window.jQuery || document.write('<script src="{% static 'website/js/vendor/jquery-1.11.2.min.js' %}"><\/script>')
+    </script>
+
+    <script src="{% static '/static/dajax/jquery.dajax.core.js' %}"></script>
     <script src="{% static 'website/js/codemirror.js'%}"></script>
     <script src="{% static 'website/js/javascript.js'%}"></script>
     <script src="{% static 'website/js/fullscreen.js'%}"></script>
     <script src="{% static 'website/js/placeholder.js'%}"></script>
     <script src="{% static 'website/js/lightbox_me.js'%}"></script>
-
+    <script src="{% static 'website/js/cloud.js'%}"></script>
     <script src="{% static 'website/js/vendor/bootstrap.min.js' %}"></script>
     <script src="{% static 'website/js/vendor/classie.js' %}"></script>
     <script src="{% static 'website/js/vendor/mlpushmenu.js' %}"></script>
-    <script src="{% static 'website/js/cloud.js'%}"></script>
     <script>
-    new mlPushMenu(document.getElementById('mp-menu'), document.getElementById('trigger'));
+        new mlPushMenu(document.getElementById('mp-menu'), document.getElementById('trigger'));
 
-    $('.expand-btn').on('click', function(){
-        $('.code-panes').toggleClass('fullscreen');
-        $('.code-sectionx').toggleClass('fullscreen-x');
-    //            $('.container-app-main').toggle();
-    });
+        $('.expand-btn').on('click', function(){
+            $('.code-panes').toggleClass('fullscreen');
+            $('.code-sectionx').toggleClass('fullscreen-x');
+//            $('.container-app-main').toggle();
+        });
     </script>
     <script>
 
@@ -411,7 +489,7 @@ $(function () {
             $('#examples-wrapper').show(300);
         })
         </script>
-{% csrf_token %}
+
     <!--    <script src="{% static 'website/js/main.js' %}"></script>-->
 </body>
 

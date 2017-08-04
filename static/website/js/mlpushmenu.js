@@ -4,16 +4,16 @@
  *
  * Licensed under the MIT license.
  * http://www.opensource.org/licenses/mit-license.php
- *
+ * 
  * Copyright 2013, Codrops
  * http://www.codrops.com
  */
 ;( function( window ) {
-
+	
 	'use strict';
 
 	function extend( a, b ) {
-		for( var key in b ) {
+		for( var key in b ) { 
 			if( b.hasOwnProperty( key ) ) {
 				a[key] = b[key];
 			}
@@ -57,7 +57,7 @@
 		return e.parentNode && closest( e.parentNode, classname );
 	}
 
-	function mlPushMenu( el, trigger, options ) {
+	function mlPushMenu( el, trigger, options ) {	
 		this.el = el;
 		this.trigger = trigger;
 		this.options = extend( this.defaults, options );
@@ -113,7 +113,7 @@
 			// open (or close) the menu
 			this.trigger.addEventListener( this.eventtype, function( ev ) {
 				ev.stopPropagation();
-				//ev.preventDefault();
+				ev.preventDefault();
 				if( self.open ) {
 					self._resetMenu();
 				}
@@ -131,11 +131,10 @@
 			// opening a sub level menu
 			this.menuItems.forEach( function( el, i ) {
 				// check if it has a sub level
-				console.log("sub check");
 				var subLevel = el.querySelector( 'div.mp-level' );
 				if( subLevel ) {
 					el.querySelector( 'a' ).addEventListener( self.eventtype, function( ev ) {
-						//ev.preventDefault();
+						ev.preventDefault();
 						var level = closest( el, 'mp-level' ).getAttribute( 'data-level' );
 						if( self.level <= level ) {
 							ev.stopPropagation();
@@ -150,7 +149,7 @@
 			// by clicking on the visible part of the level element
 			this.levels.forEach( function( el, i ) {
 				el.addEventListener( self.eventtype, function( ev ) {
-					ev.stopImmediatePropagation();
+					ev.stopPropagation();
 					var level = el.getAttribute( 'data-level' );
 					if( self.level > level ) {
 						self.level = level;
@@ -162,15 +161,15 @@
 			// by clicking on a specific element
 			this.levelBack.forEach( function( el, i ) {
 				el.addEventListener( self.eventtype, function( ev ) {
-					//ev.preventDefault();
+					ev.preventDefault();
 					var level = closest( el, 'mp-level' ).getAttribute( 'data-level' );
 					if( self.level <= level ) {
-						//ev.stopPropagation();
+						ev.stopPropagation();
 						self.level = closest( el, 'mp-level' ).getAttribute( 'data-level' ) - 1;
 						self.level === 0 ? self._resetMenu() : self._closeMenu();
 					}
 				} );
-			} );
+			} );	
 		},
 		_openMenu : function( subLevel ) {
 			// increment level depth
@@ -179,7 +178,7 @@
 			// move the main wrapper
 			var levelFactor = ( this.level - 1 ) * this.options.levelSpacing,
 				translateVal = this.options.type === 'overlap' ? this.el.offsetWidth + levelFactor : this.el.offsetWidth;
-
+			
 			this._setTransform( 'translate3d(' + translateVal + 'px,0,0)' );
 
 			if( subLevel ) {

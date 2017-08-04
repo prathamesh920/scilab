@@ -1,10 +1,8 @@
-{% if chapters %}
-<label>Chapter: </label>
-<select id="chapters">
-    <option value="">Select Chapter</option>
-{% for chapter in chapters %}
-    <option value="{{ chapter.id }}">{{ chapter.number }} - {{ chapter.name }}</option>
-{% endfor %}
-</select>
-{% endif %}
-<a href="#" class="extra-link" id="download-chapter">Download Chapter</a>
+<img src="{% static 'website/images/scilab-app-logo.svg' %}" class="full-width padding-logo" />
+<h2>Chapters</h2>
+<ul>
+  {% for chapter in chapters %}
+      <li><a href="#" class="open-app">{{ chapter.number }} - {{ chapter.name }}</a>
+      </li>
+  {% endfor %}
+</ul>

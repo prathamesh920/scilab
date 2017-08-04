@@ -1,30 +1,13 @@
-$(document).ready(function() {
-
-
+$(document).ready(function(){
+  console.log("loaded")
   /*
    * Selectors function
    * Write the queries using .on()
   */
-  $(document).on("click", ".categ", function() {
-    console.log("#category-wrapper"+this.id);
-      $("#books-wrapper"+this.id).html("");
-      $("#chapters-wrapper").html("");
-      $("#examples-wrapper").html("");
-      $("#contributor").hide();
-      ajax_loader(this);
-      Dajaxice.website.books(function(data) {
-          Dajax.process(data);
-          ajax_loader("clear");
-      }, {category_id: $(this).attr('id')});
 
-  });
 
-  $(document).on("click", '.bks', function() {
+  $(".bookss").on("click",".mmbooks", function() {
     console.log("#books-wrapper"+this.id);
-      $("#chapters-wrapper"+this.id).html("");
-      $("#examples-wrapper").html("");
-      $("#contributor").show();
-      $("#download-book").show();
       ajax_loader(this);
       Dajaxice.website.chapters(function(data) {
           Dajax.process(data);
@@ -32,7 +15,9 @@ $(document).ready(function() {
       }, {book_id: $(this).attr('id')});
   });
 
-  $(document).on("click", '.chp', function() {
+
+  $(".chapterss").on("click", '.chp', function(event) {
+
     console.log("#chapters-wrapper"+this.id)
       $("#examples-wrapper").html("");
       $("#download-chapter").show();
@@ -133,7 +118,7 @@ $(document).ready(function() {
                 $plot = $("<img>");
                 $plot.attr({
                     src: data.plot_path,
-                    width: 400
+                    width: 800
                 });
                 $plotbox.html($plot);
                 $plotbox_wrapper.lightbox_me({centered: true});
@@ -146,7 +131,6 @@ $(document).ready(function() {
             example_id: $(".ex_id").val() || 0
         });
     });
-
     /* Download book, chapter, example */
     $(document).on("click", "#download-book", function(e) {
         window.location = "http://scilab.in/download/book/" + $(this).attr('value');
@@ -208,4 +192,5 @@ $(document).ready(function() {
     $(document).on("click", "#bug-form #id_notify", function() {
         $("#id_email_wrapper").toggle(this.checked);
     });
+
 });
