@@ -1,13 +1,15 @@
+
+function show_examples(current_element){
+    examples_ajax(current_element);
+      }
 $(document).ready(function(){
-  console.log("loaded")
   /*
    * Selectors function
    * Write the queries using .on()
   */
 
 
-  $(".bookss").on("click",".mmbooks", function() {
-    console.log("#books-wrapper"+this.id);
+  $(".mmbooks").click( function() {
       ajax_loader(this);
       Dajaxice.website.chapters(function(data) {
           Dajax.process(data);
@@ -15,18 +17,17 @@ $(document).ready(function(){
       }, {book_id: $(this).attr('id')});
   });
 
-
-  $(".chapterss").on("click", '.chp', function(event) {
-
-    console.log("#chapters-wrapper"+this.id)
-      $("#examples-wrapper").html("");
-      $("#download-chapter").show();
-      ajax_loader(this);
-      Dajaxice.website.examples(function(data) {
-          Dajax.process(data);
-          ajax_loader("clear");
-      }, {chapter_id: $(this).attr('id')});
-  });
+    examples_ajax = function(current_element){
+          $("#examples-wrapper").html("");
+          $("#download-chapter").show();
+          ajax_loader(current_element);
+          Dajaxice.website.examples(function(data) {
+              Dajax.process(data);
+              ajax_loader("clear");
+          }, {chapter_id: $(current_element).attr('id')});
+                $('#intro-page').hide(300);
+                $('#examples-wrapper').show(300);
+    }
 
   $(document).on("click", '.exmp', function() {
       ajax_loader(this);
@@ -48,7 +49,6 @@ $(document).ready(function(){
             cm.setOption("fullScreen", !cm.getOption("fullScreen"));
            },
            "Esc": function(cm) {
-             console.log("running");
             if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
            }
          }
@@ -109,7 +109,6 @@ $(document).ready(function(){
     $plotbox_wrapper  = $("#plotbox-wrapper");
     $plotbox = $("#plotbox");
     $(document).on("click", "#execute", function() {
-      console.log("running");
         $("#execute-inner").html("Executing...");
         Dajaxice.website.execute(function(data) {
             $("#execute-inner").html("Execute");

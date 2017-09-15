@@ -72,7 +72,6 @@
         }
     </style>
 
-    <script src="{% static 'website/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js' %}"></script>
 </head>
 
 <body class="app-body">
@@ -283,14 +282,16 @@
     <div id="plotbox-wrapper">
         <div id="plotbox"></div>
     </div>
-
+    <!--
     <script
 			  src="http://code.jquery.com/jquery-3.2.1.slim.min.js"
 			  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
-			  crossorigin="anonymous"></script>
+              crossorigin="anonymous"></script>-->
+    <script src="{% static 'website/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js' %}"></script>
     <script src="{% static 'dajax/jquery.dajax.core.js' %}"></script>
     <script src="{% static 'website/js/codemirror.js'%}"></script>
     <script src="{% static 'website/js/javascript.js'%}"></script>
+    <script src="{% static 'website/js/jquery-3.2.1.min.js'%}"></script>
     <script src="{% static 'website/js/fullscreen.js'%}"></script>
     <script src="{% static 'website/js/placeholder.js'%}"></script>
     <script src="{% static 'website/js/lightbox_me.js'%}"></script>
@@ -407,7 +408,15 @@ $(function () {
         })
 
         $('.open-app').on('click', function(){
-            $('#intro-page').hide(300);
+                  $("#examples-wrapper").html("");
+                  $("#download-chapter").show();
+                  ajax_loader(this);
+                  Dajaxice.website.examples(function(data) {
+                      Dajax.process(data);
+                      ajax_loader("clear");
+                  }, {chapter_id: $(this).attr('id')});
+           $('#intro-page').hide(300);
+
             $('#examples-wrapper').show(300);
         })
         </script>

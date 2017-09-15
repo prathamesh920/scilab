@@ -112,8 +112,8 @@
 
 			// open (or close) the menu
 			this.trigger.addEventListener( this.eventtype, function( ev ) {
-				ev.stopPropagation();
-				ev.preventDefault();
+				//ev.stopPropagation();
+				//ev.preventDefault();
 				if( self.open ) {
 					self._resetMenu();
 				}
@@ -134,10 +134,10 @@
 				var subLevel = el.querySelector( 'div.mp-level' );
 				if( subLevel ) {
 					el.querySelector( 'a' ).addEventListener( self.eventtype, function( ev ) {
-						ev.preventDefault();
+						//ev.preventDefault();
 						var level = closest( el, 'mp-level' ).getAttribute( 'data-level' );
 						if( self.level <= level ) {
-							ev.stopPropagation();
+							//ev.stopPropagation();
 							classie.add( closest( el, 'mp-level' ), 'mp-level-overlay' );
 							self._openMenu( subLevel );
 						}
@@ -149,7 +149,7 @@
 			// by clicking on the visible part of the level element
 			this.levels.forEach( function( el, i ) {
 				el.addEventListener( self.eventtype, function( ev ) {
-					ev.stopPropagation();
+					//ev.stopPropagation();
 					var level = el.getAttribute( 'data-level' );
 					if( self.level > level ) {
 						self.level = level;
@@ -161,10 +161,10 @@
 			// by clicking on a specific element
 			this.levelBack.forEach( function( el, i ) {
 				el.addEventListener( self.eventtype, function( ev ) {
-					ev.preventDefault();
+					//ev.preventDefault();
 					var level = closest( el, 'mp-level' ).getAttribute( 'data-level' );
 					if( self.level <= level ) {
-						ev.stopPropagation();
+						//ev.stopPropagation();
 						self.level = closest( el, 'mp-level' ).getAttribute( 'data-level' ) - 1;
 						self.level === 0 ? self._resetMenu() : self._closeMenu();
 					}

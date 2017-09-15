@@ -3,8 +3,11 @@
     <h2 class="icon icon-display">Chapters</h2>
     <ul class="scrollid3">
 {% for chapter in chapters %}
-  <li class="chp fortrigger" id="{{ chapter.id }}"><a href="#" id="chp" class="open-app">{{ chapter.number }} - {{ chapter.name }}</a>
-  </li>
+<li >
+    <a id="{{ chapter.id }}" href="#" class="chapa" onclick = "show_examples(this)">
+        {{ forloop.counter }}. {{ chapter.name }}
+    </a>
+</li>
 {% endfor %}
 
 </ul>
